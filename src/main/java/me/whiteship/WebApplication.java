@@ -33,7 +33,7 @@ public class WebApplication implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.setServletContext(servletContext);
+        context.setServletContext(servletContext); // @EnableWebMvc 사용 시 해당 어노테이션이 참조하는 servletContext를 설정해야 주어야 한다.
         context.register(WebConfig.class);
         context.refresh();
 
